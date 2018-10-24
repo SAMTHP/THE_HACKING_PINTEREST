@@ -1,24 +1,41 @@
-# README
+# Création de THE HACKING PINTEREST
+Contributeurs SAMTHP & HERVELEE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Après téléchargement du repo, lancer**
 
-Things you may want to cover:
+```bundle install```  
+```rails db:migrate```  
+```rails db:seed```  
 
-* Ruby version
+Accès à la console pour vérifier la structure de la BDD
+```rails console```
 
-* System dependencies
 
-* Configuration
+## Résumé du projet
+- Création d'un site où les utilisateurs peuvent creer un pins
+- Chaque pin contien une URL d'une image sur le net
+- Les utilisateurs peuvent commenter les pins, mais ne peuvent pas commenter les commentaires
 
-* Database creation
+## Structure de la BDD
 
-* Database initialization
+### Models 
+- User
+- Pin
+- Commentary
 
-* How to run the test suite
+### Colonnes de chaque table
+> ```timestamps``` est présent dans chaque table sous la forme  
+> ```t.datetime "created_at", null: false```  
+> ```t.datetime "updated_at", null: false```   
 
-* Services (job queues, cache servers, search engines, etc.)
+* **table** ```users```
+    * "name" (string)
 
-* Deployment instructions
+* **table** ```pins```
+    * "url" (string)
+    * "user_id" **(foreign key)**
 
-* ...
+* **table** ```commentaries```
+    * "content" (text)
+    * "user_id" **(foreign key)**
+    * "pin_id" **(foreign key)**
